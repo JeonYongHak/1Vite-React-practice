@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 // 간단한 회원가입 폼
 // 1. 이름
 // 2. 생년월일
@@ -14,31 +13,10 @@ const Register = () => {
     bio: "",
   });
 
-  const onChangeName = (e) => {
+  const onChange = (e) => {
     setInput({
       ...input,
-      name: e.target.value,
-    });
-  };
-
-  const onChangeBirth = (e) => {
-    setInput({
-      ...input,
-      birth: e.target.value,
-    });
-  };
-
-  const onChangeCountry = (e) => {
-    setInput({
-      ...input,
-      country: e.target.value,
-    });
-  };
-
-  const onChangeBio = (e) => {
-    setInput({
-      ...input,
-      bio: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -46,18 +24,24 @@ const Register = () => {
     <>
       <div>
         <input
+          name="name"
           value={input.name}
-          onChange={onChangeName}
+          onChange={onChange}
           placeholder={"이름"}
           type="text"
         />
       </div>
       <div>
-        <input value={} onChange={onChangeBirth} type="date" />
+        <input
+          name="birth"
+          value={input.birth} // 수정된 부분
+          onChange={onChange}
+          type="date"
+        />
         {input.birth}
       </div>
       <div>
-        <select value={input.country} onChange={onChangeCountry}>
+        <select name="country" value={input.country} onChange={onChange}>
           {/* 아무것도 설정되지 않은 목록을 추가하고 싶으면 빈 option 태그를 설정함 */}
           <option value="default"></option>
           <option value="kr">한국</option>
@@ -68,13 +52,15 @@ const Register = () => {
       </div>
       <div>
         <textarea
+          name="bio"
           placeholder="자기소개를 해주세요."
           value={input.bio}
-          onChange={onChangeBio}
-        ></textarea>{" "}
+          onChange={onChange}
+        ></textarea>
         {input.bio}
       </div>
     </>
   );
 };
+
 export default Register;
