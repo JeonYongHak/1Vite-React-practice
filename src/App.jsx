@@ -8,11 +8,14 @@ function App() {
 
   const onClickButton = (value) => {
     setCount(count + value);
+    if (value === 0) {
+      setCount(0);
+    }
   };
   return (
     <>
       <div className="m-20">
-        <h1 className="text-center py-5 text-4xl font-bold">Simple Counter</h1>
+        <h1 className="py-5 text-4xl font-bold text-center">Simple Counter</h1>
         <section>
           <Viewer count={count} />
         </section>
