@@ -1,10 +1,14 @@
 import "./App.css";
-import Register from "./components/Register";
+import HookExam from "./components/HookExam";
+
+
+
+
+
 const App = () => {
   return (
     <>
-      <Register />
-      <Register />
+      <HookExam />
     </>
   );
 };
