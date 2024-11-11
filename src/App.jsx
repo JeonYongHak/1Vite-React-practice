@@ -24,9 +24,9 @@ function App() {
     <>
       <div className="m-20">
         <h1 className="py-5 text-4xl font-bold text-center">Simple Counter</h1>
-        <section>
+        <section className="flex items-center justify-center">
           <input
-            className="px-4 py-2 font-bold text-center border border-slate-400 "
+            className="flex px-4 py-2 mb-4 font-bold text-center border rounded-lg shadow-md border-slate-400 "
             value={input}
             onChange={(e) => {
               setInput(e.target.value);
